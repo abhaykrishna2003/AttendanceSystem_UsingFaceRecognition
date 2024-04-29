@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class - Attendance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+  <div class="background">
+    <h1>D1 Class - Attendance</h1>
+    <button id="startAttendance" class="detect-face" onclick="startAttendance()">Start Attendance</button>
+    <p>Follow the Instructions Carefully: </p>
+    <p>1. Keep your head straight and look directly into the camera</p>
+    <p>2. Ensure that you remove your glasses if the image is not recognized</p>
+    <p>3. Only leave the lab once your verification is complete</p>
+    <div id="loading" style="display: none;">
+      <!-- Removed the img tag and kept only the iframe for the GIF -->
+      <p>Loading...</p>
+      <iframe src="https://giphy.com/embed/cnzP4cmBsiOrccg20V" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/loading-slow-wanderson-cnzP4cmBsiOrccg20V"></a></p>
+    </div>
+    <div class="picture">
+      <img src="/static/images/scan.jpg" alt="Picture" />
+    </div>
+  </div>
+  <script>
+    function startAttendance() {
+      document.getElementById("startAttendance").style.display = "none";
+      document.getElementById("loading").style.display = "block";
+      setTimeout(function() {
+        window.location.href = "/index"; // Redirect to index page
+      }, 3000); // Redirect after 3 seconds (adjust as needed)
+    }
+  </script>
+</body>
+</html>
